@@ -5,10 +5,13 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv/config');
 
+//import routes
+const postsRoute = require('./routes/posts');
+
 //middlewares - function executes when routers being hit
-// app.use('/', () => {
-//     console.log('this is middleware running');
-// })
+//everytime go to that post, make sure to use this postRoute
+//all routes related '/posts' will be in posts.js
+app.use('/posts', postsRoute);
 
 //routes
 app.get('/', (req, res) => {
